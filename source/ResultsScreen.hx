@@ -33,7 +33,7 @@ import flixel.input.FlxKeyManager;
 
 using StringTools;
 
-class ResultsScreen extends MusicBeatsubState
+class ResultsScreen extends MusicBeatSubstate
 {
     public var background:FlxSprite;
     public var text:FlxText;
