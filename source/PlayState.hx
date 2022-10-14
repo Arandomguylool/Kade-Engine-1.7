@@ -3976,9 +3976,9 @@ class PlayState extends MusicBeatState
 		{
 			playerStrums.forEach(function(spr:StaticArrow)
 			{
-				if (keys[spr.ID] && spr.animation.curAnim.name != 'confirm' && spr.animation.curAnim.name != 'pressed' && !spr.animation.curAnim.name.startsWith('dirCon'))
+				if (pressArray[spr.ID] && spr.animation.curAnim.name != 'confirm' && spr.animation.curAnim.name != 'pressed' && !spr.animation.curAnim.name.startsWith('dirCon'))
 					spr.playAnim('pressed', false);
-				if (!keys[spr.ID])
+				if (!holdArray[spr.ID])
 					spr.playAnim('static', false);
 			});
 		}
