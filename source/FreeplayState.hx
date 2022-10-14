@@ -93,7 +93,7 @@ class FreeplayState extends MusicBeatState
 			var diffsThatExist = [];
 
 
-			#if sys
+			#if desktop
 			if (OpenFlAssets.exists('assets/data/${format}/${format}-hard.json'))
 				diffsThatExist.push("Hard");
 			if (OpenFlAssets.exists('assets/data/${format}/${format}-easy.json'))
