@@ -327,9 +327,9 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.music.volume -= 0.5 * FlxG.elapsed;
 		}
 
-		var upP = FlxG.keys.justPressed.UP;
-		var downP = FlxG.keys.justPressed.DOWN;
-		var accepted = FlxG.keys.justPressed.ENTER;
+		var upP = controls.UP_P;
+		var downP = controls.DOWN_P;
+		var accepted = controls.ACCEPT;
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
@@ -371,12 +371,12 @@ class FreeplayState extends MusicBeatState
 
 		if (FlxG.keys.pressed.SHIFT)
 		{
-			if (FlxG.keys.justPressed.LEFT)
+			if (controls.LEFT_P)
 			{
 				rate -= 0.05;
 				diffCalcText.text = 'RATING: ${DiffCalc.CalculateDiff(songData.get(songs[curSelected].songName)[curDifficulty])}';
 			}
-			if (FlxG.keys.justPressed.RIGHT)
+			if (controls.RIGHT_P)
 			{
 				rate += 0.05;
 				diffCalcText.text = 'RATING: ${DiffCalc.CalculateDiff(songData.get(songs[curSelected].songName)[curDifficulty])}';
