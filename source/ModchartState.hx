@@ -25,6 +25,7 @@ import llua.LuaL;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
+import openfl.utils.Assets as OpenFlAssets;
 
 class ModchartState 
 {
