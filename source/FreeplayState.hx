@@ -279,7 +279,7 @@ class FreeplayState extends MusicBeatState
 		 */
 		 
 		 #if android
-		 addVirtualPad(FULL, A_B);
+		 addVirtualPad(FULL, A_B_C);
 		 #end
 
 		super.create();
@@ -369,7 +369,7 @@ class FreeplayState extends MusicBeatState
 		//if (FlxG.keys.justPressed.SPACE && !openedPreview)
 			//openSubState(new DiffOverview());
 
-		if (FlxG.keys.pressed.SHIFT)
+		if (FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonC.pressed #end)
 		{
 			if (controls.LEFT_P)
 			{
@@ -397,9 +397,9 @@ class FreeplayState extends MusicBeatState
 		}
 		else
 		{
-			if (FlxG.keys.justPressed.LEFT)
+			if (controls.LEFT_P)
 				changeDiff(-1);
-			if (FlxG.keys.justPressed.RIGHT)
+			if (controls.RIGHT_P)
 				changeDiff(1);
 		}
 		
