@@ -44,6 +44,7 @@ import openfl.events.IOErrorEvent;
 import openfl.media.Sound;
 import openfl.net.FileReference;
 import openfl.utils.ByteArray;
+import openfl.utils.Assets as OpenFlAssets;
 #if windows
 import Discord.DiscordClient;
 #end
@@ -171,7 +172,7 @@ class ChartingState extends MusicBeatState
 		if (PlayState.SONG != null)
 		{
 			if (PlayState.isSM)
-				_song = Song.conversionChecks(Song.loadFromJsonRAW(File.getContent(PlayState.pathToSm + "/converted.json")));
+				_song = Song.conversionChecks(Song.loadFromJsonRAW(OpenFlAssets.getText(PlayState.pathToSm + "/converted.json")));
 			else
 			{
 				var songFormat = StringTools.replace(PlayState.SONG.song, " ", "-");
@@ -1055,7 +1056,7 @@ class ChartingState extends MusicBeatState
 		var stepperSpeedLabel = new FlxText(74,80,'Scroll Speed');
 		
 		var stepperVocalVol:FlxUINumericStepper = new FlxUINumericStepper(10, 95, 0.1, 1, 0.1, 10, 1);
-		#if sys
+		#if desktop
 		if (!PlayState.isSM)
 			stepperVocalVol.value = vocals.volume;
 		else
@@ -1457,7 +1458,7 @@ class ChartingState extends MusicBeatState
 			FlxG.sound.music.stop();
 			// vocals.stop();
 		}
-		#if sys
+		#if desktop
 		if (PlayState.isSM)
 		{
 			trace("Loading " + PlayState.pathToSm + "/" + PlayState.sm.header.MUSIC);
@@ -1473,7 +1474,7 @@ class ChartingState extends MusicBeatState
 		#end
 
 		if (PlayState.isSM)
-			_song = Song.conversionChecks(Song.loadFromJsonRAW(File.getContent(PlayState.pathToSm + "/converted.json")));
+			_song = Song.conversionChecks(Song.loadFromJsonRAW(OpenFlAssets.getText(PlayState.pathToSm + "/converted.json")));
 		else
 		{
 			var songFormat = StringTools.replace(PlayState.SONG.song, " ", "-");
@@ -1488,7 +1489,7 @@ class ChartingState extends MusicBeatState
 		}
 
 		// WONT WORK FOR TUTORIAL OR TEST SONG!!! REDO LATER
-		#if sys
+		#if desktop
 		if (PlayState.isSM)
 			vocals = null;
 		else
