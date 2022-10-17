@@ -268,11 +268,11 @@ class ModchartState
 			case 'philly-nice': songLowercase = 'philly';
 		}
 
-		var data:BitmapData = BitmapData.fromFile(Sys.getCwd() + "assets/data/" + songLowercase + '/' + spritePath + ".png");
+		var data = OpenFlAssets.getBitmapData("assets/data/" + songLowercase + '/' + spritePath + ".png");
 
 		var sprite:FlxSprite = new FlxSprite(0,0);
 
-		sprite.frames = FlxAtlasFrames.fromSparrow(FlxGraphic.fromBitmapData(data), Sys.getCwd() + "assets/data/" + songLowercase + "/" + spritePath + ".xml");
+		sprite.frames = FlxAtlasFrames.fromSparrow(FlxGraphic.fromBitmapData(data), "assets/data/" + songLowercase + "/" + spritePath + ".xml");
 
 		trace(sprite.frames.frames.length);
 
@@ -302,12 +302,9 @@ class ModchartState
 			case 'philly-nice': songLowercase = 'philly';
 		}
 
-		var path = Sys.getCwd() + "assets/data/" + songLowercase + '/';
+		var path = "assets/data/" + songLowercase + '/';
 
-		if (PlayState.isSM)
-			path = PlayState.pathToSm + "/";
-
-		var data:BitmapData = BitmapData.fromFile(path + spritePath + ".png");
+		var data = OpenFlAssets.getBitmapData(path + spritePath + ".png");
 
 		var sprite:FlxSprite = new FlxSprite(0,0);
 		var imgWidth:Float = FlxG.width / data.width;
