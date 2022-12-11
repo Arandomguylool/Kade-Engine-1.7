@@ -46,6 +46,7 @@ class Caching extends MusicBeatState
 	var music = [];
 	var charts = [];
 
+        var list = Assets.list();
 
 	override function create()
 	{
@@ -85,9 +86,12 @@ class Caching extends MusicBeatState
 		#if cpp
 		if (FlxG.save.data.cacheImages)
 		{
+                        var daSongPath = list.filter(text -> text.contains('assets/songs'));
+                        var daCharactersPath = list.filter(text -> text.contains('assets/shared/images/characters'));
+
 			trace("caching images...");
 
-			for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/shared/images/characters")))
+			for (i in daCharactersPath)
 			{
 				if (!i.endsWith(".png"))
 					continue;
@@ -97,7 +101,7 @@ class Caching extends MusicBeatState
 
 		trace("caching music...");
 
-		for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/songs")))
+		for (i in daSongPath)
 		{
 			music.push(i);
 		}
