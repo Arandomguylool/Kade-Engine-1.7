@@ -84,10 +84,11 @@ class Caching extends MusicBeatState
 		FlxGraphic.defaultPersist = FlxG.save.data.cacheImages;
 
 		#if cpp
+                var daSongPath = list.filter(text -> text.contains('assets/songs'));
+                var daCharactersPath = list.filter(text -> text.contains('assets/shared/images/characters'));
+
 		if (FlxG.save.data.cacheImages)
 		{
-                        var daSongPath = list.filter(text -> text.contains('assets/songs'));
-                        var daCharactersPath = list.filter(text -> text.contains('assets/shared/images/characters'));
 
 			trace("caching images...");
 
